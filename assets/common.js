@@ -34,6 +34,10 @@
       h += `<ul class="project-list">${g.projects
         .map((p) => `<li><span class="project-name">${md(p.name)}${p.status ? ` <span class="project-status${p.status === "출시" ? " live" : ""}">${md(p.status)}</span>` : ""}</span><span class="project-platform">${md(p.platform)}</span></li>`)
         .join("")}</ul>`;
+      if (g.projectsLink) {
+        const l = g.projectsLink;
+        h += `<p class="projects-link"><a href="${escapeHtml(l.url)}" target="_blank" rel="noopener"><span class="pl-label">${md(l.label)}</span><span class="pl-display">${md(l.display || "")}</span></a></p>`;
+      }
     }
     if (g.items) h += `<ul class="items">${g.items.map(item).join("")}</ul>`;
     if (g.results) {

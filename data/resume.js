@@ -154,6 +154,8 @@ window.RESUME = {
             { name: "아쿠아도쿠", platform: "Android · iOS · 토스 인앱", status: "개발 중" },
             { name: "프로젝트 헌터 (가제)", platform: "Android · iOS · 토스 인앱", status: "개발 중" },
           ],
+          // 출시작이 늘면 이 페이지에 자동으로 추가된다
+          projectsLink: { label: "Google Play에서 출시작 보기", url: "https://play.google.com/store/apps/developer?id=HAEON+STUDIO+CO.,LTD.", display: "HAEON STUDIO 개발자 페이지" },
           items: [
             { label: "일정 관리 · 의사결정", text: "전 프로젝트의 개발 일정 관리와 주요 의사결정" },
             { label: "콘텐츠 방향성", text: "게임별 콘텐츠 방향 결정" },
@@ -163,8 +165,6 @@ window.RESUME = {
           ],
         },
       ],
-      // 출시작이 늘면 이 페이지에 자동으로 추가된다
-      links: [{ label: "Google Play 출시작", url: "https://play.google.com/store/apps/developer?id=HAEON+STUDIO+CO.,LTD.", display: "HAEON STUDIO 개발자 페이지" }],
     },
 
     {
