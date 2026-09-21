@@ -339,10 +339,7 @@ window.RESUME = {
           ],
         },
       ],
-      links: [
-        { label: "홍보 영상", url: "https://youtu.be/g7OfW-Qf55s" },
-        { label: "플레이 영상", url: "https://youtu.be/eGcGmCr4LbQ" },
-      ],
+      links: [{ label: "플레이 영상", url: "https://youtu.be/eGcGmCr4LbQ" }],
     },
 
     {
@@ -389,7 +386,7 @@ window.RESUME = {
   ],
 
   studentProjects: [
-    { title: "2013 글로벌 게임제작 경진대회 장려상 — \"Dungeon Gate\"", text: "Android 3D 디펜스. FSM 캐릭터 AI, NGUI·iTween UI, 씬 관리 시스템", shot: "assets/img/shots/student-dungeongate.jpg", url: "https://youtu.be/N1B40J80wUk" },
+    { title: "2013 글로벌 게임제작 경진대회 장려상 — \"Dungeon Gate\"", text: "Android 3D 디펜스. FSM 캐릭터 AI, NGUI·iTween UI, 씬 관리 시스템", shot: "assets/img/shots/student-dungeongate.jpg" },
     { title: "2012 글로벌 게임제작 경진대회 은상 — \"대굴대굴\"", text: "PC·모바일 물리 아케이드. 프로젝트 총괄·클라이언트, 키보드·자이로·조이스틱 입력, Rigidbody R&D", shot: "assets/img/shots/student-daegul.jpg" },
     { title: "(주)대교 교육용 게임 2종 (2012)", text: "\"도형을 전송하라\", \"약수와 배수\" 1인 개발, 교재 부록 CD 수록", shot: "assets/img/shots/student-daekyo.jpg" },
   ],
