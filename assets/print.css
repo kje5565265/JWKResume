@@ -1,0 +1,151 @@
+/* 인쇄용 PDF 스타일 (A4). 웹 스타일과 공유하지 않는다. */
+
+@page {
+  size: A4;
+  margin: 14mm 15mm 14mm;
+}
+
+:root {
+  --text: #1c1917;
+  --muted: #57514b;
+  --faint: #8f877f;
+  --line: #ddd6ce;
+  --accent: #c2410c;
+  --font: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  margin: 0;
+  color: var(--text);
+  background: #fff;
+  font-family: var(--font);
+  font-size: 9pt;
+  line-height: 1.55;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  /* font-feature-settings: "tnum" 은 쓰지 않는다 — 대체 숫자 글리프가 PDF 텍스트 추출에서 사라진다 */
+}
+p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, h4 { margin: 0; line-height: 1.3; letter-spacing: -0.01em; }
+a { color: inherit; text-decoration: none; }
+strong { font-weight: 700; }
+
+/* 화면에서 미리 볼 때만 종이처럼 보이게 */
+@media screen {
+  html { background: #e9e5e0; }
+  body { width: 210mm; margin: 24px auto; padding: 14mm 15mm; box-shadow: 0 4px 24px rgba(0,0,0,0.12); }
+}
+
+/* ── 머리 ───────────────────────────────── */
+.doc-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  padding-bottom: 3.2mm;
+  border-bottom: 1.4pt solid var(--text);
+}
+.doc-name { font-size: 20pt; font-weight: 800; letter-spacing: -0.02em; }
+.doc-name .en { font-size: 11pt; font-weight: 700; color: var(--accent); margin-left: 5pt; }
+.doc-title { margin-top: 1pt; font-size: 9.5pt; font-weight: 600; color: var(--muted); }
+.doc-contact { text-align: right; font-size: 8.5pt; color: var(--muted); line-height: 1.6; }
+.doc-contact strong { color: var(--text); }
+.doc-kind { font-size: 8pt; font-weight: 700; color: var(--accent); letter-spacing: 0.06em; }
+.headline { margin-top: 3.2mm; font-size: 11pt; font-weight: 700; color: var(--accent); }
+
+/* 증명사진이 있는 머리 (이력서) */
+.doc-head.with-photo { display: grid; grid-template-columns: 22mm minmax(0, 1fr) auto; gap: 5mm; align-items: end; }
+.doc-photo { width: 22mm; height: 29.3mm; object-fit: cover; border-radius: 1.2mm; display: block; }
+.doc-head.with-photo .headline { margin-top: 2.2mm; line-height: 1.4; }
+
+/* 스크린샷 (경력기술서) */
+.shots { display: flex; gap: 3mm; margin-top: 2.4mm; break-inside: avoid; }
+.shots figure { margin: 0; flex: 1 1 0; min-width: 0; }
+.shots img { display: block; width: 100%; height: 30mm; object-fit: cover; border-radius: 1mm; border: 0.4pt solid var(--line); }
+.shots figcaption { margin-top: 0.8mm; font-size: 7.5pt; color: var(--faint); }
+.shots.single figure { flex: 0 1 62%; }
+
+/* ── 섹션 ───────────────────────────────── */
+.sec { margin-top: 4.2mm; }
+.sec-title {
+  font-size: 9.5pt;
+  font-weight: 800;
+  padding-bottom: 1.2mm;
+  margin-bottom: 1.8mm;
+  border-bottom: 0.6pt solid var(--line);
+  display: flex;
+  align-items: baseline;
+  gap: 6pt;
+}
+.sec-title::before { content: ""; width: 3pt; height: 9pt; background: var(--accent); align-self: center; }
+
+.summary p + p { margin-top: 1.2mm; }
+.summary p { color: var(--muted); }
+.summary strong { color: var(--text); }
+
+.bullets li { position: relative; padding-left: 8pt; color: var(--muted); }
+.bullets li + li { margin-top: 1mm; }
+.bullets li::before { content: ""; position: absolute; left: 1pt; top: 0.62em; width: 3pt; height: 3pt; border-radius: 50%; background: var(--accent); }
+.bullets .item-label, .bullets strong { color: var(--text); }
+.item-label { font-weight: 700; }
+
+/* 이력서 1장 — 경력 표 */
+.career-table { width: 100%; border-collapse: collapse; }
+.career-table td { padding: 1.35mm 0; vertical-align: top; border-bottom: 0.4pt solid var(--line); }
+.career-table tr:last-child td { border-bottom: 0; }
+.career-table .c-period { width: 29mm; color: var(--muted); white-space: nowrap; }
+.career-table .c-company { width: 58mm; padding-right: 3mm; }
+.career-table .c-company strong { display: block; }
+.career-table .c-company span { color: var(--muted); font-size: 8.3pt; }
+.career-table .c-brief { color: var(--muted); }
+
+.two-col { display: grid; grid-template-columns: 1.35fr 1fr; gap: 7mm; }
+.skill-list li { display: grid; grid-template-columns: 11mm minmax(0, 1fr); gap: 2mm; color: var(--muted); }
+.skill-list li + li { margin-top: 0.9mm; }
+.skill-list b { color: var(--text); font-weight: 700; }
+.plain-list li { color: var(--muted); }
+.plain-list li + li { margin-top: 0.9mm; }
+.plain-list strong { color: var(--text); }
+
+/* ── 경력기술서 ─────────────────────────── */
+.career { margin-top: 5.5mm; }
+.career + .career { padding-top: 4.5mm; border-top: 0.6pt solid var(--line); }
+/* 짧은 경력은 쪽 사이에서 끊기지 않게 통째로 넘긴다. 긴 경력(.long)은 그룹 단위로만 끊는다 */
+.career:not(.long) { break-inside: avoid; }
+.career.long .group-title + * { break-before: avoid; }
+.career-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; break-after: avoid; }
+.career-name { font-size: 12pt; font-weight: 800; }
+.career-name span { font-size: 9.5pt; font-weight: 600; color: var(--muted); margin-left: 5pt; }
+.career-period { font-size: 9pt; font-weight: 700; color: var(--accent); white-space: nowrap; }
+.career-meta { margin-top: 0.6mm; color: var(--muted); font-size: 8.5pt; break-after: avoid; }
+.career-meta .sep { margin: 0 4pt; color: var(--faint); }
+.career-role { margin-top: 1.8mm; padding: 1.6mm 2.4mm; background: #f5f1ec; border-radius: 1.5mm; break-inside: avoid; }
+.note-label { font-weight: 800; color: var(--accent); margin-right: 5pt; }
+
+.group { margin-top: 2.8mm; }
+.group-title { font-size: 9.5pt; font-weight: 800; margin-bottom: 1.4mm; break-after: avoid; }
+.group-note { color: var(--muted); margin-bottom: 1.2mm; break-inside: avoid; }
+.items li { position: relative; padding-left: 8pt; color: var(--muted); break-inside: avoid; }
+.items li + li { margin-top: 1mm; }
+.items li::before { content: ""; position: absolute; left: 1pt; top: 0.62em; width: 3pt; height: 3pt; border-radius: 50%; background: var(--accent); }
+.items strong { color: var(--text); }
+.results-title { margin-top: 2mm; margin-bottom: 1mm; font-weight: 800; break-after: avoid; }
+.items.results li::before { border-radius: 0; width: 4pt; height: 1pt; top: 0.72em; }
+
+.project-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1mm 4mm; margin-bottom: 1.8mm; }
+.project-list li { display: flex; justify-content: space-between; gap: 6pt; border-bottom: 0.4pt solid var(--line); padding: 0.6mm 0; }
+.project-name { font-weight: 700; }
+.project-platform { color: var(--muted); font-size: 8pt; }
+
+.links { margin-top: 1.8mm; font-size: 8pt; color: var(--muted); }
+.links a { color: var(--accent); }
+.links .sep { margin: 0 4pt; color: var(--faint); }
+
+.student li { break-inside: avoid; color: var(--muted); }
+.student li + li { margin-top: 1.2mm; }
+.student .t { color: var(--text); font-weight: 700; }
+.student a { color: var(--accent); font-size: 8pt; }
+

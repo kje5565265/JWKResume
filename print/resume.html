@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>김재우 이력서</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+  <link rel="stylesheet" href="../assets/print.css">
+  <style>
+    /* 이력서는 반드시 1장 — 경력기술서보다 촘촘하게 */
+    @page { margin: 10mm 13mm 9mm; }
+    @media screen { body { padding: 10mm 13mm 9mm; } }
+    body { font-size: 8.4pt; line-height: 1.47; }
+    .doc-name { font-size: 19pt; }
+    .headline { margin-top: 2.6mm; font-size: 10.5pt; }
+    .sec { margin-top: 3.1mm; }
+    .sec-title { margin-bottom: 1.3mm; }
+    .summary p + p { margin-top: 0.8mm; }
+    .bullets li + li { margin-top: 0.6mm; }
+    .career-table td { padding: 0.7mm 0; }
+    .two-col { grid-template-columns: 1.75fr 1fr; gap: 6mm; }
+    .skill-list li + li, .plain-list li + li { margin-top: 0.6mm; }
+  </style>
+</head>
+<body>
+  <div id="doc"></div>
+
+  <script src="../data/resume.js"></script>
+  <script src="../assets/common.js"></script>
+  <script>
+    // 이력서 1장. 내용은 data/resume.js 에서만 가져온다.
+    R.withPrivate("../", function (priv) {
+      const D = RESUME, p = D.profile, { md, escapeHtml: e } = R;
+
+      const contact = [
+        `<span class="doc-kind">이력서</span>`,
+        e(p.email) + (priv && priv.phone ? ` · ${e(priv.phone)}` : ""),
+        D.meta.webUrl ? `<a href="${e(D.meta.webUrl)}">${e(D.meta.webUrl.replace(/^https?:\/\//, ""))}</a>` : "",
+        D.meta.github ? e(D.meta.github.replace(/^https?:\/\//, "")) : "",
+        e(p.careerTotal),
+      ].filter(Boolean).join("<br>");
+
+      document.getElementById("doc").innerHTML = `
+        <header class="doc-head with-photo">
+          ${p.photo ? `<img class="doc-photo" src="../${e(p.photo)}" alt="">` : ""}
+          <div>
+            <h1 class="doc-name">${e(p.name)}<span class="en">${e(p.nameEn)}</span></h1>
+            <p class="doc-title">${e(p.title)}</p>
+            <p class="headline">${md(p.headline)}</p>
+          </div>
+          <p class="doc-contact">${contact}</p>
+        </header>
+
+        <section class="sec summary">
+          <h2 class="sec-title">요약</h2>
+          ${D.summary.map((s) => `<p>${md(s)}</p>`).join("")}
+        </section>
+
+        <section class="sec">
+          <h2 class="sec-title">핵심 성과</h2>
+          <ul class="bullets">${D.highlights.map((h) => `<li><span class="item-label">${md(h.label)}</span> — ${md(h.text)}</li>`).join("")}</ul>
+        </section>
+
+        <section class="sec">
+          <h2 class="sec-title">경력</h2>
+          <table class="career-table">
+            ${D.careers.map((c) => `
+              <tr>
+                <td class="c-period">${e(c.period)}</td>
+                <td class="c-company"><strong>${e(c.company)}</strong><span>${e(c.role)}</span></td>
+                <td class="c-brief">${md(c.brief)}</td>
+              </tr>`).join("")}
+          </table>
+        </section>
+
+        <div class="two-col">
+          <section class="sec">
+            <h2 class="sec-title">기술</h2>
+            <ul class="skill-list">${D.skills.map((s) => `<li><b>${e(s.group)}</b><span>${s.items.map(e).join(", ")}</span></li>`).join("")}</ul>
+          </section>
+          <section class="sec">
+            <h2 class="sec-title">학력 · 수상</h2>
+            <ul class="plain-list">${D.education.concat(D.awards).map((x) => `<li>${md(x)}</li>`).join("")}</ul>
+          </section>
+        </div>`;
+    });
+  </script>
+</body>
+</html>

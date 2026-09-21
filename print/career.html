@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>김재우 경력기술서</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+  <link rel="stylesheet" href="../assets/print.css">
+  <style>
+    /* 쪽 번호 (Chrome 131+ 페이지 여백 상자) */
+    @page {
+      @bottom-left {
+        content: "김재우 · 경력기술서";
+        font-family: "Pretendard Variable", "Malgun Gothic", sans-serif;
+        font-size: 7.5pt;
+        color: #8f877f;
+      }
+      @bottom-right {
+        content: counter(page) " / " counter(pages);
+        font-family: "Pretendard Variable", "Malgun Gothic", sans-serif;
+        font-size: 7.5pt;
+        color: #8f877f;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="doc"></div>
+
+  <script src="../data/resume.js"></script>
+  <script src="../assets/common.js"></script>
+  <script>
+    // 경력기술서. 내용은 data/resume.js 에서만 가져온다.
+    R.withPrivate("../", function (priv) {
+      const D = RESUME, p = D.profile, { md, escapeHtml: e, group } = R;
+
+      const contact = [
+        `<span class="doc-kind">경력기술서</span>`,
+        e(p.email) + (priv && priv.phone ? ` · ${e(priv.phone)}` : ""),
+        D.meta.webUrl ? `<a href="${e(D.meta.webUrl)}">${e(D.meta.webUrl.replace(/^https?:\/\//, ""))}</a>` : "",
+        e(p.careerTotal),
+      ].filter(Boolean).join("<br>");
+
+      const careers = D.careers.map((c) => `
+        <article class="career${c.groups.length > 1 ? " long" : ""}">
+          <div class="career-head">
+            <h2 class="career-name">${e(c.company)}<span>${e(c.role)}</span></h2>
+            <p class="career-period">${e(c.period)}</p>
+          </div>
+          ${c.meta && c.meta.length ? `<p class="career-meta">${c.meta.map(md).join('<span class="sep">·</span>')}</p>` : ""}
+          ${c.roleLine ? `<p class="career-role"><span class="note-label">역할</span>${md(c.roleLine)}</p>` : ""}
+          ${c.groups.map((g) => `<div class="group">${group(g)}</div>`).join("")}
+          ${c.shots && c.shots.length ? `<div class="shots${c.shots.length === 1 ? " single" : ""}">${c.shots.map((s) => `<figure><img src="../${e(s.src)}" alt=""><figcaption>${e(s.caption || "")}</figcaption></figure>`).join("")}</div>` : ""}
+          ${c.links && c.links.length ? `<p class="links">${c.links.map((l) => `${e(l.label)} <a href="${e(l.url)}">${e(l.display || l.url.replace(/^https?:\/\/(www\.)?/, ""))}</a>`).join('<span class="sep">·</span>')}</p>` : ""}
+        </article>`).join("");
+
+      document.getElementById("doc").innerHTML = `
+        <header class="doc-head">
+          <div>
+            <h1 class="doc-name">${e(p.name)}<span class="en">${e(p.nameEn)}</span></h1>
+            <p class="doc-title">${e(p.title)}</p>
+          </div>
+          <p class="doc-contact">${contact}</p>
+        </header>
+
+        ${careers}
+
+        <section class="sec">
+          <h2 class="sec-title">학생 시절 프로젝트</h2>
+          <ul class="student">
+            ${D.studentProjects.map((s) => `<li><span class="t">${md(s.title)}</span> — ${md(s.text)}${s.url ? ` <a href="${e(s.url)}">${e(s.url.replace(/^https?:\/\//, ""))}</a>` : ""}</li>`).join("")}
+          </ul>
+        </section>
+
+        <section class="sec">
+          <h2 class="sec-title">학력 · 기타</h2>
+          <ul class="plain-list">${D.education.concat(D.etc).map((x) => `<li>${md(x)}</li>`).join("")}</ul>
+        </section>`;
+    });
+  </script>
+</body>
+</html>
