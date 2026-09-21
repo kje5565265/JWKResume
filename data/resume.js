@@ -149,10 +149,10 @@ window.RESUME = {
         {
           title: "PM · PD — 사내 전 프로젝트 총괄",
           projects: [
-            { name: "픽셀비즈: 도트 컬러링 퍼즐", platform: "Android · iOS · 토스 인앱" },
-            { name: "픽셀비즈: 루프", platform: "Android · iOS · 토스 인앱" },
-            { name: "아쿠아도쿠", platform: "Android · iOS · 토스 인앱" },
-            { name: "프로젝트 헌터 (가제)", platform: "Android · iOS · 토스 인앱" },
+            { name: "픽셀비즈: 도트 컬러링 퍼즐", platform: "Android · iOS · 토스 인앱", status: "출시" },
+            { name: "픽셀비즈: 루프", platform: "Android · iOS · 토스 인앱", status: "출시" },
+            { name: "아쿠아도쿠", platform: "Android · iOS · 토스 인앱", status: "개발 중" },
+            { name: "프로젝트 헌터 (가제)", platform: "Android · iOS · 토스 인앱", status: "개발 중" },
           ],
           items: [
             { label: "일정 관리 · 의사결정", text: "전 프로젝트의 개발 일정 관리와 주요 의사결정" },
@@ -163,6 +163,8 @@ window.RESUME = {
           ],
         },
       ],
+      // 출시작이 늘면 이 페이지에 자동으로 추가된다
+      links: [{ label: "Google Play 출시작", url: "https://play.google.com/store/apps/developer?id=HAEON+STUDIO+CO.,LTD.", display: "HAEON STUDIO 개발자 페이지" }],
     },
 
     {
@@ -249,7 +251,6 @@ window.RESUME = {
           ],
         },
       ],
-      links: [{ label: "플레이 영상", url: "https://x.com/i/status/1787995835801759965" }],
     },
 
     {

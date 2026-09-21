@@ -32,7 +32,7 @@
     }
     if (g.projects) {
       h += `<ul class="project-list">${g.projects
-        .map((p) => `<li><span class="project-name">${md(p.name)}</span><span class="project-platform">${md(p.platform)}</span></li>`)
+        .map((p) => `<li><span class="project-name">${md(p.name)}${p.status ? ` <span class="project-status${p.status === "출시" ? " live" : ""}">${md(p.status)}</span>` : ""}</span><span class="project-platform">${md(p.platform)}</span></li>`)
         .join("")}</ul>`;
     }
     if (g.items) h += `<ul class="items">${g.items.map(item).join("")}</ul>`;

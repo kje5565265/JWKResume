@@ -138,6 +138,8 @@ strong { font-weight: 700; }
 .project-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1mm 4mm; margin-bottom: 1.8mm; }
 .project-list li { display: flex; justify-content: space-between; gap: 6pt; border-bottom: 0.4pt solid var(--line); padding: 0.6mm 0; }
 .project-name { font-weight: 700; }
+.project-status { margin-left: 3pt; font-size: 7pt; font-weight: 700; color: var(--faint); }
+.project-status.live { color: var(--accent); }
 .project-platform { color: var(--muted); font-size: 8pt; }
 
 .links { margin-top: 1.8mm; font-size: 8pt; color: var(--muted); }
