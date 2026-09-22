@@ -215,7 +215,7 @@
       sectionHead("Skills", "기술") +
       `<div class="skills reveal">
         ${D.skills.map((s) => `
-          <div class="skill-row">
+          <div class="skill-row${s.accent ? " accent" : ""}">
             <p class="skill-group">${escapeHtml(s.group)}</p>
             <ul class="chips">${s.items.map((it) => `<li>${escapeHtml(it)}</li>`).join("")}</ul>
           </div>`).join("")}

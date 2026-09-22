@@ -368,13 +368,17 @@ window.RESUME = {
     },
   ],
 
+  // 기술 — 한 줄에는 같은 종류만 둔다. 클라이언트 → 플랫폼 → AI 순서. accent 는 웹에서 강조할 줄
   skills: [
-    { group: "AI", items: ["Claude Code", "Codex", "Cursor", "Google Antigravity", "MCP 플러그인 확장", "에이전트 스킬 설계", "Cascadeur", "NVIDIA Kimodo"] },
     { group: "엔진", items: ["Unity (7년+)", "Unreal Engine 5.7", "Unreal Engine 3"] },
-    { group: "언어", items: ["C#", "C++", "Python", "UnrealScript"] },
-    { group: "빌드", items: ["Jenkins CI", "Addressables", "Android", "iOS", "WebGL", "Steam", "Nintendo Switch", "Dedicated Server"] },
-    { group: "SDK", items: ["Steam", "NHN Cloud Gamebase", "Kakao", "Firebase", "AppsFlyer", "Apple·Google·Facebook 로그인"] },
-    { group: "기타", items: ["UniTask", "UniRx", "Unity EditorWindow 툴 개발"] },
+    { group: "언어", items: ["C#", "C++", "Python", "UnrealScript", "PowerShell"] },
+    { group: "Unity", items: ["UI 프레임워크 설계", "Addressables", "NGUI", "UniTask", "UniRx", "Rigidbody 물리", "EditorWindow 툴", "메모리 프로파일링"] },
+    { group: "Unreal", items: ["Blueprint", "GAS", "Motion Matching", "Behavior Tree", "MetaHuman"] },
+    { group: "플랫폼", items: ["Android", "iOS", "WebGL", "Steam", "Nintendo Switch", "Dedicated Server"] },
+    { group: "빌드", items: ["Jenkins CI", "Python 빌드 스크립트", "Flask 빌드 대시보드"] },
+    { group: "SDK", items: ["Steam SDK", "NHN Cloud Gamebase", "Kakao SDK", "Firebase", "AppsFlyer", "IGAWorks", "Apple·Google·Facebook 로그인", "Telegram Bot · TON"] },
+    { group: "AI 개발", accent: true, items: ["Claude Code", "Codex", "Cursor", "Google Antigravity", "MCP (Unreal 연동 확장)", "에이전트 스킬 · 규칙 설계"] },
+    { group: "AI 애니메이션", accent: true, items: ["Cascadeur (Python API)", "NVIDIA Kimodo"] },
   ],
 
   education: [

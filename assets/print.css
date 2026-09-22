@@ -103,7 +103,7 @@ strong { font-weight: 700; }
 .career-table .c-brief { color: var(--muted); }
 
 .two-col { display: grid; grid-template-columns: 1.35fr 1fr; gap: 7mm; }
-.skill-list li { display: grid; grid-template-columns: 11mm minmax(0, 1fr); gap: 2mm; color: var(--muted); }
+.skill-list li { display: grid; grid-template-columns: 16mm minmax(0, 1fr); gap: 2mm; color: var(--muted); }
 .skill-list li + li { margin-top: 0.9mm; }
 .skill-list b { color: var(--text); font-weight: 700; }
 .plain-list li { color: var(--muted); }

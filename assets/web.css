@@ -643,7 +643,8 @@ body.no-scroll { overflow: hidden; }
   border: 1px solid var(--line);
   font-size: 14px;
 }
-.skill-row:first-child .chips li { border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); background: var(--accent-soft); }
+.skill-row.accent .chips li { border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); background: var(--accent-soft); }
+.skill-row.accent .skill-group { color: var(--accent); }
 @media (max-width: 720px) { .skill-row { grid-template-columns: 1fr; gap: 10px; } }
 
 /* ── 학력 · 수상 ─────────────────────────── */

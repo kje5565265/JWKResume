@@ -17,8 +17,15 @@
     .summary p + p { margin-top: 0.8mm; }
     .bullets li + li { margin-top: 0.6mm; }
     .career-table td { padding: 0.7mm 0; }
-    .two-col { grid-template-columns: 1.75fr 1fr; gap: 6mm; }
-    .skill-list li + li, .plain-list li + li { margin-top: 0.6mm; }
+    /* 기술은 전체 폭 2단 — 같은 종류끼리 나란히 (엔진|언어, Unity|Unreal, 플랫폼|빌드 …) */
+    .skill-list.cols { display: grid; grid-template-columns: 1fr 1fr; column-gap: 6mm; row-gap: 0.7mm; }
+    .skill-list.cols li + li { margin-top: 0; }
+    .skill-list li { grid-template-columns: 19mm minmax(0, 1fr); }
+    .plain-list li + li { margin-top: 0.6mm; }
+    /* 경력 표: 회사명과 직책을 한 줄에 (두 줄로 쌓으면 행마다 한 줄씩 낭비된다) */
+    .career-table .c-company { width: 72mm; white-space: nowrap; }
+    .career-table .c-company strong { display: inline; margin-right: 4pt; }
+    .career-table .c-company span { font-size: 7.6pt; }
   </style>
 </head>
 <body>
@@ -72,16 +79,15 @@
           </table>
         </section>
 
-        <div class="two-col">
-          <section class="sec">
-            <h2 class="sec-title">기술</h2>
-            <ul class="skill-list">${D.skills.map((s) => `<li><b>${e(s.group)}</b><span>${s.items.map(e).join(", ")}</span></li>`).join("")}</ul>
-          </section>
-          <section class="sec">
-            <h2 class="sec-title">학력 · 수상</h2>
-            <ul class="plain-list">${D.education.concat(D.awards).map((x) => `<li>${md(x)}</li>`).join("")}</ul>
-          </section>
-        </div>`;
+        <section class="sec">
+          <h2 class="sec-title">기술</h2>
+          <ul class="skill-list cols">${D.skills.map((s) => `<li><b>${e(s.group)}</b><span>${s.items.map(e).join(", ")}</span></li>`).join("")}</ul>
+        </section>
+
+        <section class="sec">
+          <h2 class="sec-title">학력 · 수상</h2>
+          <ul class="plain-list">${D.education.map((x) => `<li>${md(x)}</li>`).join("")}<li>${D.awards.map(md).join(" · ")}</li></ul>
+        </section>`;
     });
   </script>
 </body>
