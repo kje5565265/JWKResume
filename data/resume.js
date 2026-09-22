@@ -14,7 +14,7 @@ window.RESUME = {
   profile: {
     name: "김재우",
     nameEn: "Hans",
-    title: "CAIO · 게임 클라이언트 프로그래머",
+    title: "게임 클라이언트 프로그래머 · AI 개발 인프라",
     headline: "게임을 11년 만든 개발자가,\n이제는 AI가 게임을 만드는 방식을 설계합니다",
     email: "jaewookim355@gmail.com",
     careerTotal: "총 경력 10년 5개월 (2026.09 기준)",
