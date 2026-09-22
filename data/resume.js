@@ -23,7 +23,7 @@ window.RESUME = {
   },
 
   summary: [
-    "게임 개발 **11년차**. Unity와 Unreal로 모바일, PC(Steam), 콘솔(Nintendo Switch), WebGL 게임을 개발했고, **초기 개발부터 라이브와 서비스 종료까지 전체 주기를 세 번** 겪었습니다.",
+    "게임 개발 **11년차**. Unity와 Unreal로 모바일, PC(Steam), WebGL 게임을 개발하고 Nintendo Switch 빌드 R&D까지 진행했으며, **초기 개발부터 라이브와 서비스 종료까지 전체 주기를 세 번** 겪었습니다.",
     "지금은 게임 스타트업 **HAEON STUDIO의 CAIO**로서 AI 에이전트(Claude Code·Codex·Cursor)가 회사의 개발 규칙을 지키게 만드는 사내 인프라를 **직접 설계하고 운영**합니다. 또한 사업(CEO 담당)을 제외한 **회사 내부 운영 전반**을 맡아, 전 프로젝트의 PM·PD로서 일정, BM, 출시 스펙을 결정하고 조직을 관리합니다.",
     "경력 내내 일관되게 해 온 일은 **반복 작업을 없애는 도구를 만드는 것**입니다. 에디터 툴과 빌드 CI에서 시작해, 이제는 AI가 게임 엔진과 개발 공정을 움직이게 만듭니다.",
   ],
@@ -328,7 +328,7 @@ window.RESUME = {
       role: "클라이언트 프로그래머",
       period: "2014.12 ~ 2016.09",
       brief: "\"ONE for Kakao\" (UE3) — C++ UI 아키텍처",
-      meta: ["\"ONE for Kakao\" (모바일 액션 RPG)", "Unreal Engine 3 (C++·UnrealScript)", "클라이언트 4명", "초기 개발 ~ 라이브"],
+      meta: ["\"ONE for Kakao\" (모바일 액션 RPG)", "Unreal Engine 3 (C++·UnrealScript)", "클라이언트 4명", "초기 개발 ~ 서비스 종료"],
       roleLine: "UE3 기반 UI 아키텍처 설계와 콘텐츠 개발",
       groups: [
         {
@@ -350,7 +350,7 @@ window.RESUME = {
       role: "클라이언트 프로그래머",
       period: "2013.09 ~ 2014.12",
       brief: "\"Dragon Hunter for Kakao\" — 콘텐츠, Kakao 연동",
-      meta: ["\"Dragon Hunter for Kakao\" (모바일 수집형 RPG)", "Unity", "클라이언트 4명", "초기 개발 ~ 라이브"],
+      meta: ["\"Dragon Hunter for Kakao\" (모바일 수집형 RPG)", "Unity", "클라이언트 4명", "초기 개발 ~ 서비스 종료"],
       roleLine: "콘텐츠 개발, Kakao 연동, 엔진·UI 개발 환경 관리",
       groups: [
         {
