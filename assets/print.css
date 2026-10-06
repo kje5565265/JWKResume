@@ -67,6 +67,13 @@ strong { font-weight: 700; }
 .shots img { display: block; width: 100%; height: 30mm; object-fit: cover; border-radius: 1mm; border: 0.4pt solid var(--line); }
 .shots figcaption { margin-top: 0.8mm; font-size: 7.5pt; color: var(--faint); }
 .shots.single figure { flex: 0 1 62%; }
+/* 가로로 긴 이미지(몬스터 여러 종을 나란히)는 자르지 않고 위아래로 쌓는다 */
+.shots.stack { flex-direction: column; gap: 2mm; }
+.shots.stack img { height: auto; object-fit: contain; }
+
+/* 경력기술서의 큰 구분 (진행 중인 R&D / 경력) */
+.part-title { margin-top: 6mm; margin-bottom: 0; break-after: avoid; }
+.part-title + .career { margin-top: 3mm; }
 
 /* ── 섹션 ───────────────────────────────── */
 .sec { margin-top: 4.2mm; }

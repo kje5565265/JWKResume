@@ -514,6 +514,7 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.3; letter-spacing: -0.02em; }
   margin-top: 24px;
 }
 .gallery.single { grid-template-columns: minmax(0, 1fr); }
+.shot.wide { grid-column: 1 / -1; }   /* 가로로 긴 이미지 (몬스터 여러 종을 나란히) */
 .shot { margin: 0; display: grid; gap: 6px; }
 .shot-btn {
   display: block;

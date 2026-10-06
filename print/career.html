@@ -53,6 +53,21 @@
           ${c.links && c.links.length ? `<p class="links">${c.links.map((l) => `${e(l.label)} <a href="${e(l.url)}">${e(l.display || l.url.replace(/^https?:\/\/(www\.)?/, ""))}</a>`).join('<span class="sep">·</span>')}</p>` : ""}
         </article>`).join("");
 
+      // 진행 중인 R&D — 경력과 같은 모양. 사진은 pdf 표시가 있는 가로 이미지만 위아래로 쌓는다
+      const rnd = (D.rnd || []).map((r) => {
+        const shots = (r.shots || []).filter((s) => s.pdf);
+        return `
+        <article class="career long">
+          <div class="career-head">
+            <h2 class="career-name">${e(r.title)}<span>${e(r.role)}</span></h2>
+            <p class="career-period">${e(r.period)}</p>
+          </div>
+          ${r.meta && r.meta.length ? `<p class="career-meta">${r.meta.map(md).join('<span class="sep">·</span>')}</p>` : ""}
+          ${r.groups.map((g) => `<div class="group">${group(g)}</div>`).join("")}
+          ${shots.length ? `<div class="shots stack">${shots.map((s) => `<figure><img src="../${e(s.src)}" alt=""><figcaption>${e(s.caption || "")}</figcaption></figure>`).join("")}</div>` : ""}
+        </article>`;
+      }).join("");
+
       document.getElementById("doc").innerHTML = `
         <header class="doc-head">
           <div>
@@ -62,6 +77,7 @@
           <p class="doc-contact">${contact}</p>
         </header>
 
+        ${rnd ? `<h2 class="sec-title part-title">진행 중인 R&amp;D</h2>${rnd}<h2 class="sec-title part-title">경력</h2>` : ""}
         ${careers}
 
         <section class="sec">

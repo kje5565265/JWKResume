@@ -154,7 +154,7 @@
     if (!shots || !shots.length) return "";
     return `<div class="gallery${shots.length === 1 ? " single" : ""}">
       ${shots.map((s) => `
-        <figure class="shot">
+        <figure class="shot${s.wide ? " wide" : ""}">
           <button type="button" class="shot-btn" data-src="${escapeHtml(s.src)}" data-caption="${escapeHtml(s.caption || "")}" aria-label="${escapeHtml(s.caption || "스크린샷")} 크게 보기">
             <img src="${escapeHtml(s.src)}" alt="${escapeHtml(s.caption || "")}" loading="lazy">
           </button>
@@ -174,6 +174,23 @@
     h += gallery(c.shots);
     h += links(c.links);
     return h;
+  }
+
+  // ── 진행 중인 R&D ────────────────────────────────────
+  // 경력과 같은 펼친 카드 모양을 쓴다. 회사명 자리에 R&D 이름이 온다
+  function renderRnd() {
+    if (!D.rnd || !D.rnd.length) return;
+    $("rnd").innerHTML =
+      sectionHead("Now", "진행 중인 R&D", "지금 개인적으로 연구·개발하고 있는 것입니다. 진행 현황은 대시보드에서 그대로 볼 수 있습니다.") +
+      D.rnd.map((r) => `
+        <article class="career featured rnd reveal" id="rnd-${r.id}">
+          <header class="career-head">
+            <p class="career-period">${escapeHtml(r.period)}</p>
+            <h3 class="career-company">${escapeHtml(r.title)}</h3>
+            <p class="career-title">${escapeHtml(r.role)}</p>
+          </header>
+          <div class="career-body">${careerBody(r)}</div>
+        </article>`).join("");
   }
 
   // ── 경력 ─────────────────────────────────────────────
@@ -330,6 +347,7 @@
   renderHero();
   renderJourney();
   renderHighlights();
+  renderRnd();
   renderCareers();
   renderSkills();
   renderEducation();

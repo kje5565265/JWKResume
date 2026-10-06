@@ -9,10 +9,10 @@
     /* 이력서는 반드시 1장 — 경력기술서보다 촘촘하게 */
     @page { margin: 10mm 13mm 9mm; }
     @media screen { body { padding: 10mm 13mm 9mm; } }
-    body { font-size: 8.4pt; line-height: 1.47; }
+    body { font-size: 8.4pt; line-height: 1.42; }
     .doc-name { font-size: 19pt; }
     .headline { margin-top: 2.6mm; font-size: 10.5pt; }
-    .sec { margin-top: 3.1mm; }
+    .sec { margin-top: 2.7mm; }
     .sec-title { margin-bottom: 1.3mm; }
     .summary p + p { margin-top: 0.8mm; }
     .bullets li + li { margin-top: 0.6mm; }
@@ -23,9 +23,13 @@
     .skill-list li { grid-template-columns: 19mm minmax(0, 1fr); }
     .plain-list li + li { margin-top: 0.6mm; }
     /* 경력 표: 회사명과 직책을 한 줄에 (두 줄로 쌓으면 행마다 한 줄씩 낭비된다) */
-    .career-table .c-company { width: 72mm; white-space: nowrap; }
+    .career-table .c-company { width: 54mm; white-space: nowrap; }
+    /* R&D 이름은 길어서 두 줄로 내린다 (설명 + 링크로 어차피 두 줄인 행) */
+    .career-table tr.rnd .c-company { white-space: normal; }
+    .career-table tr.rnd .c-company strong { display: block; }
     .career-table .c-company strong { display: inline; margin-right: 4pt; }
     .career-table .c-company span { font-size: 7.6pt; }
+    .rnd-link { color: var(--accent); font-size: 7.8pt; }
   </style>
 </head>
 <body>
@@ -66,6 +70,22 @@
           <h2 class="sec-title">핵심 성과</h2>
           <ul class="bullets">${D.highlights.map((h) => `<li><span class="item-label">${md(h.label)}</span> — ${md(h.text)}</li>`).join("")}</ul>
         </section>
+
+        ${D.rnd && D.rnd.length ? `
+        <section class="sec">
+          <h2 class="sec-title">진행 중인 R&amp;D</h2>
+          <table class="career-table">
+            ${D.rnd.map((r) => {
+              const link = r.groups.map((g) => g.projectsLink).find(Boolean);
+              return `
+              <tr class="rnd">
+                <td class="c-period">${e(r.period)}</td>
+                <td class="c-company"><strong>${e(r.title)}</strong><span>${e(r.role)}</span></td>
+                <td class="c-brief">${md(r.brief)}${link ? `<br><a class="rnd-link" href="${e(link.url)}">${e(link.display || link.url)}</a>` : ""}</td>
+              </tr>`;
+            }).join("")}
+          </table>
+        </section>` : ""}
 
         <section class="sec">
           <h2 class="sec-title">경력</h2>
