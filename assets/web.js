@@ -44,7 +44,7 @@
   // ── 경력 흐름 ────────────────────────────────────────
   function renderJourney() {
     $("journey").innerHTML =
-      sectionHead("Journey", "클라이언트 프로그래머에서 CAIO까지", "게임을 직접 만들어 온 경험 위에서, 지금은 AI로 게임을 만드는 방식을 바꾸고 있습니다.") +
+      sectionHead("Journey", "클라이언트 프로그래머에서 CAIO까지", "게임을 직접 만들어 온 경험 위에서, AI로 게임을 만드는 방식을 바꿔 왔습니다.") +
       `<ol class="journey">
         ${D.journey.map((j, i) => `
           <li class="journey-step reveal" style="--i:${i}">

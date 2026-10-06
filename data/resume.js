@@ -6,7 +6,7 @@
 
 window.RESUME = {
   meta: {
-    updated: "2026.09",
+    updated: "2026.10",
     webUrl: "https://kje5565265.github.io/JWKResume/",
     github: "",   // 공개할 계정이 생기면 채운다
   },
@@ -17,14 +17,14 @@ window.RESUME = {
     title: "게임 클라이언트 프로그래머 · AI 개발 인프라",
     headline: "게임을 11년 만든 개발자가,\n이제는 AI가 게임을 만드는 방식을 설계합니다",
     email: "jaewookim355@gmail.com",
-    careerTotal: "총 경력 10년 5개월 (2026.09 기준)",
+    careerTotal: "총 경력 10년 6개월 (2026.10 기준)",
     photo: "assets/img/photo.jpg",            // PDF 머리에 쓰는 증명사진
     caricature: "assets/img/caricature.jpg",  // 웹 첫 화면에 쓰는 캐리커처
   },
 
   summary: [
     "게임 개발 **11년차**. Unity와 Unreal로 모바일, PC(Steam), WebGL 게임을 개발하고 Nintendo Switch 빌드 R&D까지 진행했으며, **초기 개발부터 라이브와 서비스 종료까지 전체 주기를 세 번** 겪었습니다.",
-    "지금은 게임 스타트업 **HAEON STUDIO의 CAIO**로서 AI 에이전트(Claude Code·Codex·Cursor)가 회사의 개발 규칙을 지키게 만드는 사내 인프라를 **직접 설계하고 운영**합니다. 또한 사업(CEO 담당)을 제외한 **회사 내부 운영 전반**을 맡아, 전 프로젝트의 PM·PD로서 일정, BM, 출시 스펙을 결정하고 조직을 관리합니다.",
+    "최근에는 게임 스타트업 **HAEON STUDIO의 CAIO**로서 AI 에이전트(Claude Code·Codex·Cursor)가 회사의 개발 규칙을 지키게 만드는 사내 인프라를 **직접 설계하고 운영**했습니다. 또한 사업(CEO 담당)을 제외한 **회사 내부 운영 전반**을 맡아, 전 프로젝트의 PM·PD로서 일정, BM, 출시 스펙을 결정하고 조직을 관리했습니다.",
     "경력 내내 일관되게 해 온 일은 **반복 작업을 없애는 도구를 만드는 것**입니다. 에디터 툴과 빌드 CI에서 시작해, 이제는 AI가 게임 엔진과 개발 공정을 움직이게 만듭니다.",
   ],
 
@@ -79,9 +79,9 @@ window.RESUME = {
       text: "돈크라이에서 Git·문서·빌드를 AI 중심으로 재편하고, AI가 언리얼 에디터와 애니메이션 파이프라인을 움직이게 했습니다.",
     },
     {
-      period: "2026.08 — 현재",
+      period: "2026.08 — 2026.10",
       title: "실험을 회사의 표준으로",
-      text: "HAEON STUDIO에서 그 경험을 3사 AI 공통 규칙 체계로 정리해 사내 전 프로젝트에 배포·운영합니다.",
+      text: "HAEON STUDIO에서 그 경험을 3사 AI 공통 규칙 체계로 정리해 사내 전 프로젝트에 배포·운영했습니다.",
     },
   ],
 
@@ -109,7 +109,7 @@ window.RESUME = {
       id: "haeon",
       company: "HAEON STUDIO",
       role: "CAIO (PM·PD 겸임)",
-      period: "2026.08 ~ 현재",
+      period: "2026.08 ~ 2026.10",
       brief: "AI 개발 인프라 설계·운영, 모바일 게임 4종 PM·PD (일정·BM·출시 결정), 내부 운영 총괄",
       meta: ["모바일 게임 스타트업 (Android · iOS · 토스 인앱)", "구성원 5명"],
       roleLine: "경영진으로서 회사의 AI 도입을 총괄하고, 사업(CEO 담당)을 제외한 회사 내부 운영 전반을 책임. 사내 전 프로젝트의 PM·PD 겸임",
