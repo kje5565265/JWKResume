@@ -24,7 +24,7 @@ window.RESUME = {
 
   summary: [
     "게임 개발 **11년차**. Unity와 Unreal로 모바일, PC(Steam), WebGL 게임을 개발하고 Nintendo Switch 빌드 R&D까지 진행했으며, **초기 개발부터 라이브와 서비스 종료까지 전체 주기를 세 번** 겪었습니다.",
-    "최근에는 게임 스타트업 **HAEON STUDIO의 CAIO**로서 AI 에이전트(Claude Code·Codex·Cursor)가 회사의 개발 규칙을 지키게 만드는 사내 인프라를 **직접 설계하고 운영**했습니다. 또한 사업(CEO 담당)을 제외한 **회사 내부 운영 전반**을 맡아, 전 프로젝트의 PM·PD로서 일정, BM, 출시 스펙을 결정하고 조직을 관리했습니다.",
+    "최근에는 게임 스타트업 **HAEON STUDIO의 CAIO**로서 AI 에이전트(Claude Code·Codex·Cursor)가 회사의 개발 규칙을 지키게 만드는 사내 인프라를 **직접 설계하고 운영**했습니다. 또한 사업(CEO 담당)을 제외한 **회사 내부 운영 전반**을 맡아, 전 프로젝트의 PM·PD로서 일정, BM, 출시 스펙을 결정하고 조직을 관리했습니다. 아트 인력 없이 2D 몬스터와 동작 클립을 만드는 **리소스 자동생산 파이프라인**도 단독으로 R&D하고 있습니다.",
     "경력 내내 일관되게 해 온 일은 **반복 작업을 없애는 도구를 만드는 것**입니다. 에디터 툴과 빌드 CI에서 시작해, 이제는 AI가 게임 엔진과 개발 공정을 움직이게 만듭니다.",
   ],
 
@@ -81,7 +81,7 @@ window.RESUME = {
     {
       period: "2026.08 — 2026.10",
       title: "실험을 회사의 표준으로",
-      text: "HAEON STUDIO에서 그 경험을 3사 AI 공통 규칙 체계로 정리해 사내 전 프로젝트에 배포·운영했습니다.",
+      text: "HAEON STUDIO에서 그 경험을 3사 AI 공통 규칙 체계로 정리해 사내 전 프로젝트에 배포·운영했습니다. 그림까지 AI로 만드는 2D 리소스 자동생산 파이프라인을 R&D하고 있습니다.",
     },
   ],
 
@@ -110,7 +110,7 @@ window.RESUME = {
       company: "HAEON STUDIO",
       role: "CAIO (PM·PD 겸임)",
       period: "2026.08 ~ 2026.10",
-      brief: "AI 개발 인프라 설계·운영, 모바일 게임 4종 PM·PD (일정·BM·출시 결정), 내부 운영 총괄",
+      brief: "AI 개발 인프라 설계·운영, 2D 리소스 자동생산 R&D, 모바일 게임 4종 PM·PD, 내부 운영 총괄",
       meta: ["모바일 게임 스타트업 (Android · iOS · 토스 인앱)", "구성원 5명"],
       roleLine: "경영진으로서 회사의 AI 도입을 총괄하고, 사업(CEO 담당)을 제외한 회사 내부 운영 전반을 책임. 사내 전 프로젝트의 PM·PD 겸임",
       groups: [
@@ -137,6 +137,31 @@ window.RESUME = {
             "아침 브리핑 토큰 **16K → 약 9K** (개발 이력 214건 프로젝트 기준)",
             "누적 검토 문서 **202KB → 4.3KB**",
             "사용량 실측으로 **비용의 92%가 입력 재전송**임을 규명하고, 이를 \"상시 적재량 최소화\" 설계 원칙의 근거로 채택",
+          ],
+        },
+        {
+          title: "2D 캐릭터 리소스 자동생산 파이프라인 — R&D (단독 · 진행 중)",
+          notes: [
+            {
+              label: "배경",
+              text: "아트 인력이 없는 조직에서 코드는 AI로 빠르게 나오는데, 몬스터 하나를 추가하려면 그림이 나올 때까지 기다려야 했음. 말 한 줄로 시작해 게임 엔진에 바로 넣을 2D 몬스터와 동작 클립까지 만드는 파이프라인을 R&D",
+            },
+          ],
+          // 진행 현황을 그대로 보여 주는 공개 대시보드 (원본은 비공개 저장소)
+          projectsLink: { label: "R&D 진행 현황 대시보드", url: "https://kje5565265.github.io/2DcharacterCreater-dashboard/", display: "kje5565265.github.io/2DcharacterCreater-dashboard" },
+          items: [
+            { label: "파이프라인 설계", text: "한 줄 주문 → 제작 축(모티프·골격·이동·교전) 분해 → AI 시안 3장 동시 생성·규격 자동 검사 → 4방향 몸·표정·리그·동작 클립 → 검수 GIF → Unity 스프라이트 시트. 사람은 **시안 확정·애니메이션 검수·엔진 투입 세 곳**에서만 판단" },
+            { label: "AI와 코드의 역할 분리", text: "그림·관절 점·동작 설계는 AI(Codex)가, 자르기·좌표·배율은 코드가 맡도록 재설계. AI에게 픽셀 좌표를 묻던 방식을 걷어내자 **관절 배치가 1회차에 통과** (이전 방식 3회 전부 실패)" },
+            { label: "메시 변형 애니메이션", text: "파츠를 따로 그려 조립하는 방식이 이어진 몸에서 이음매를 내는 문제를, 시안 한 장에 메시와 뼈를 넣어 휘게 하는 방식(측지 가중치 스키닝)으로 해결. 몬스터마다 파츠·메시 방식을 골라 씀" },
+            { label: "AI 산출물 검증", text: "AI의 자기 보고 대신 원본과 직접 겹쳐 측정(IoU). 캔버스·형태 규격을 벗어난 시안은 사람이 고르기 전에 자동 차단" },
+            { label: "웹 대시보드", text: "주문, 단계별 진행 실시간 표시, 검수 피드백 → 다시 만들기 반복을 한 화면에서 처리 (Python 서버)" },
+          ],
+          resultsTitle: "성과",
+          results: [
+            "슬라임 **7종 × 25클립**을 Unity 플레이 씬까지 투입. 지우개·스마트폰 몬스터는 도구만으로 시안에서 검수 GIF까지 완주",
+            "몬스터 1종 생산 시간 **30분 → 16분** (렌더 병렬화, 산출물 995개 sha256 동일)",
+            "승인된 결과물을 다시 만들어 **픽셀 차이 0**으로 회귀 검증",
+            "팔다리가 있는 몬스터는 시험 단계에서 검수 통과 품질을 확보했고, 도구 반영을 진행 중",
           ],
         },
         {
@@ -371,7 +396,7 @@ window.RESUME = {
     { group: "빌드", items: ["Jenkins CI", "Python 빌드 스크립트", "Flask 빌드 대시보드"] },
     { group: "SDK", items: ["Steam SDK", "NHN Cloud Gamebase", "Kakao SDK", "Firebase", "AppsFlyer", "IGAWorks", "Apple·Google·Facebook 로그인", "Telegram Bot · TON"] },
     { group: "AI 개발", accent: true, items: ["Claude Code", "Codex", "Cursor", "Google Antigravity", "MCP (Unreal 연동 확장)", "에이전트 스킬 · 규칙 설계"] },
-    { group: "AI 애니메이션", accent: true, items: ["Cascadeur (Python API)", "NVIDIA Kimodo"] },
+    { group: "AI 애니메이션", accent: true, items: ["Cascadeur (Python API)", "NVIDIA Kimodo", "2D 메시 변형 · 스키닝"] },
   ],
 
   education: [
