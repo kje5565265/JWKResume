@@ -196,10 +196,12 @@
         ${rest.map((c) => `
           <details class="career compact reveal" id="career-${c.id}">
             <summary>
-              <span class="career-period">${escapeHtml(c.period)}</span>
-              <span class="summary-main">
+              <span class="summary-head">
+                <span class="career-period">${escapeHtml(c.period)}</span>
                 <span class="career-company">${escapeHtml(c.company)}</span>
                 <span class="career-title">${escapeHtml(c.role)}</span>
+              </span>
+              <span class="summary-main">
                 <span class="career-brief">${md(c.brief)}</span>
               </span>
               <span class="chev" aria-hidden="true"></span>

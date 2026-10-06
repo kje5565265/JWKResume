@@ -602,8 +602,9 @@ body.no-scroll { overflow: hidden; }
   padding: 22px 0;
 }
 .career.compact summary::-webkit-details-marker { display: none; }
-.summary-main { display: grid; gap: 2px; }
-.career.compact .career-company { font-size: 19px; font-weight: 800; }
+.summary-head { display: grid; gap: 2px; }
+.summary-main { display: grid; gap: 2px; padding-top: 24px; }
+.career.compact .career-company { font-size: 19px; font-weight: 800; margin-top: 4px; }
 .career.compact .career-title { font-size: 14.5px; color: var(--muted); font-weight: 600; }
 .career-brief { font-size: 15px; color: var(--muted); margin-top: 4px; }
 .chev {
@@ -621,7 +622,8 @@ body.no-scroll { overflow: hidden; }
 .career.compact .group:first-of-type { margin-top: 16px; }
 @media (max-width: 820px) {
   .career.compact summary { grid-template-columns: minmax(0, 1fr) 24px; gap: 12px; }
-  .career.compact summary .career-period { grid-column: 1 / -1; }
+  .career.compact .summary-main { grid-column: 1; grid-row: 2; padding-top: 0; }
+  .career.compact .chev { grid-column: 2; grid-row: 1; }
   .career.compact .career-body { padding-left: 0; }
 }
 
